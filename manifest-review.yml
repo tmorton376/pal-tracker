@@ -6,4 +6,3 @@ applications:
   - route: toddandlydia-pal-tracker-review.apps.evans.pal.pivotal.io
   services:
     - tracker-database
-    
