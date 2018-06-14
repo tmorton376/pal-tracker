@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: {{github-repository}}
-    branch: master
+    branch: my-work
     private_key: {{github-private-key}}
 
 - name: pal-tracker-artifacts
@@ -89,18 +89,6 @@ jobs:
     passed: [deploy-review]
   - get: pal-tracker-artifacts
     passed: [deploy-review]
-  - task: migrate database
-    file: pal-tracker/ci/migrateDatabase.yml
-    params:
-      CF_API_URL: {{cf-api-url}}
-      CF_USERNAME: {{cf-username}}
-      CF_PASSWORD: {{cf-password}}
-      CF_ORG: {{cf-org}}
-      CF_SPACE: production
-      MYSQL_IP: {{mysql-ip}}
-      DATABASE_NAME: {{production-database-name}}
-      DATABASE_USERNAME: {{production-database-username}}
-      DATABASE_PASSWORD: {{production-database-password}}
   - put: production-deployment
     params:
       manifest: pal-tracker/manifest-production.yml
