@@ -4,3 +4,6 @@ applications:
   path: build/libs/pal-tracker.jar
   routes:
   - route: toddandlydia-pal-tracker-review.apps.evans.pal.pivotal.io
+  services:
+    - tracker-database
+    
